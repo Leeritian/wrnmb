@@ -1,0 +1,9 @@
+大哥 {{ user.username }},
+
+为了确认您的邮箱，请点击以下链接:
+
+{{ url_for('auth.change_email', token=token, _external=True) }}
+
+充气牛头怪
+
+别回复我，这是机器人

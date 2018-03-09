@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block head %}
+{{ super() }}
+<script src="https://unpkg.com/wangeditor@3.0.17/release/wangEditor.min.js"></script>
+{% endblock %}
+{% block title %}cq - 编辑文章{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>编辑文章</h1>
+</div>
+    <form method="post" action="">
+        {{ form.title(class="form-control") }}
+    <div id="editor"></div>
+        {{ form.csrf_token }}
+        {{ form.body(class="hidden_textarea") }}
+        <input name="submit" class="btn btn-default" id="submit" type="submit" value="发表吧">
+    </form>
+
+<script type="text/javascript">
+    var E = window.wangEditor
+    var editor = new E('#editor')
+    var $text1 = $('#body')
+    editor.customConfig.onchange = function (html) {
+        $text1.val(html)
+        }
+    var render_body = $text1.val()
+    editor.create()
+    editor.txt.html(render_body)
+    $text1.val(editor.txt.html())
+</script>
+
+{% endblock %}
+

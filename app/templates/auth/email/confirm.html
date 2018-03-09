@@ -1,0 +1,7 @@
+<p>大哥 {{ user.username }},</p>
+<p>来到 <b>wrnmb/b>!</p>
+<p>确认你的账户是这个 <a href="{{ url_for('auth.confirm', token=token, _external=True) }}">点击此处</a>.</p>
+<p>你也可以复制链接自己打开</p>
+<p>{{ url_for('auth.confirm', token=token, _external=True) }}</p>
+<p>您的小弟发给您的，我是充气牛头怪</p>
+<p><small>老哥别回复我，我只是个机器人。</small></p>

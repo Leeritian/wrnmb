@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv=Content-Type content=text/html;charset=gb2312>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <title>test</title>
+
+<script type="text/javascript">
+$p_f_hide=false
+$(document).ready(function(){
+  $("button#hhide").click(function(){
+    if ($p_f_hide)
+    {
+      $("button#hhide").html("hide")
+      $("p#FuckYou").show();
+      $p_f_hide=false
+    }
+    else
+    {
+      $("p#FuckYou").hide();
+      $("button#hhide").html("show")
+      $p_f_hide=true
+    }
+  });
+  $(document).ready(function(){
+    $("button#gett").click(function()
+    {
+      $.get("/test",function(data, status)
+      {
+        $("p#data").html(data);
+      });
+    });
+  });
+});
+
+</script>
+</head>
+<body>
+<p id="data">hahaha</p>
+<p id="FuckYou">what s</p>
+<button id="gett">ggggeeeeetttt</button>
+<button id="hhide">hide</button>
+</body>
+</html>
+
